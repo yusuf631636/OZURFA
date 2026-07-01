@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Öz Urfa Kebap | Nisan - Mayıs 2026 Komple Rapor</title>
+    <title>Öz Urfa Kebap | Nisan - Haziran 2026 Komple Rapor</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -26,7 +26,6 @@
         h1 small { background: #fef3c7; padding: 5px 16px; border-radius: 40px; font-size: 0.75rem; font-weight: 600; color: #92400e; }
         .sub { color: #4a627a; border-left: 4px solid #f97316; padding-left: 16px; margin-top: 8px; font-weight: 500; }
         
-        /* Ana butonlar (ay seçimi) */
         .main-button-bar {
             display: flex;
             flex-wrap: wrap;
@@ -62,7 +61,6 @@
             transform: translateY(-2px);
         }
         
-        /* Alt butonlar (kategori seçimi) */
         .sub-button-bar {
             display: flex;
             flex-wrap: wrap;
@@ -131,37 +129,45 @@
         .info-note { background: #eef2ff; border-left: 6px solid #3b82f6; padding: 14px 20px; border-radius: 18px; margin-top: 20px; font-size: 0.8rem; }
         .footer { text-align: center; font-size: 0.7rem; color: #5f7d9c; padding: 24px 0 10px; border-top: 1px solid #e2edf2; margin-top: 16px; }
         .positive { color: #15803d; font-weight: 800; }
+        .negative { color: #dc2626; font-weight: 800; }
+        .debt-badge { background: #fef2f2; border: 1px solid #fca5a5; padding: 8px 16px; border-radius: 40px; font-weight: 700; color: #991b1b; display: inline-block; }
+        .comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0; }
+        .month-card { background: #f8fafc; border-radius: 20px; padding: 18px 20px; border: 1px solid #e2e8f0; }
+        .month-card h3 { color: #b45309; margin-bottom: 12px; font-size: 1.1rem; }
+        .month-card .stat-line { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #eef2f0; font-size: 0.85rem; }
+        .month-card .stat-line:last-child { border-bottom: none; }
+        .month-card .stat-line .label { color: #4a627a; }
+        .month-card .stat-line .value { font-weight: 700; }
         @media (max-width: 700px) { .card-body { padding: 16px; } .stat-number { font-size: 1.3rem; } .main-btn { padding: 8px 20px; font-size: 0.85rem; } .sub-btn { padding: 6px 14px; font-size: 0.7rem; } }
     </style>
 </head>
 <body>
 <div class="dashboard">
     <div class="brand">
-        <h1>🧾 ÖZ URFA KEBAP <small>Nisan - Mayıs 2026 Komple Rapor</small></h1>
-        <div class="sub">📊 İki ayın tüm detayları | Aylar arası geçiş yapabilirsiniz</div>
+        <h1>🧾 ÖZ URFA KEBAP <small>Nisan - Haziran 2026 Komple Rapor</small></h1>
+        <div class="sub">📊 Üç ayın tüm detayları | Aylar arası geçiş yapabilirsiniz</div>
     </div>
 
-    <!-- Ana Butonlar (Ay Seçimi) -->
     <div class="main-button-bar">
-        <button class="main-btn active" data-main="nisan">📀Geçem Ay Nisan 2026</button>
+        <button class="main-btn active" data-main="nisan">📀 Nisan 2026</button>
         <button class="main-btn" data-main="mayis">🌙 Mayıs 2026</button>
+        <button class="main-btn" data-main="haziran">☀️ Haziran 2026</button>
     </div>
 
-    <!-- Alt Butonlar (Kategori Seçimi) -->
     <div id="subButtonBar" class="sub-button-bar">
         <button class="sub-btn active" data-sub="overview">🏠 Genel Özet & Kâr</button>
         <button class="sub-btn" data-sub="personel">👥 Personel Giderleri</button>
-        <button class="sub-btn" data-sub="nakit">💰 Nakit Giderler (Kasadan)</button>
-        <button class="sub-btn" data-sub="kredi">💳 Kredi Kartı & EFT Giderleri</button>
-        <button class="sub-btn" data-sub="allgider">📋 Tüm Giderler (Nakit+Kredi)</button>
+        <button class="sub-btn" data-sub="nakit">💰 Nakit Giderler</button>
+        <button class="sub-btn" data-sub="kredi">💳 Kredi Kartı & EFT</button>
+        <button class="sub-btn" data-sub="allgider">📋 Tüm Giderler</button>
     </div>
 
     <div id="tabContent"></div>
 
     <div class="footer">
-        ⚡ Öz Urfa Kebap | Nisan 2026: 30 gün çalışma · Mayıs 2026: 24 gün çalışma (3 Pazartesi + 4 gün bayram kapalı)<br>
-        📌 Kira 45.000 TL her iki ayda da ödenmemiştir · Mayıs'a 1.100 TL telefon faturası eklenmiştir.<br>
-       
+        ⚡ Öz Urfa Kebap | Nisan 2026: 30 gün · Mayıs 2026: 24 gün · Haziran 2026: 25 gün (Pazartesileri kapalı)<br>
+        📌 Kira 45.000 TL her üç ayda da ödenmemiştir · Yusuf Usta'ya borç: 82.850 TL<br>
+        📦 Online siparişlerde %50 komisyon uygulanmıştır (Trendyol & Getir)
     </div>
 </div>
 
@@ -179,7 +185,9 @@
         gunlukCiro: 959492.37 / 30,
         toplamGider: 79040 + 341140 + 366000,
         netKar: 959492.37 - (79040 + 341140 + 366000),
-        telefon: 0
+        telefon: 0,
+        kiraOdenmedi: true,
+        yusufBorcu: 110820
     };
     
     const nisanPersonnel = [
@@ -193,61 +201,61 @@
     ];
     
     const nisanNakit = [
-        { date: "01.04.2026 14:12:60", desc: "biber", amount: 170 }, { date: "01.04.2026 18:06:00", desc: "market", amount: 300 },
-        { date: "01.04.2026 20:28:60", desc: "pazar yılmaz", amount: 1650 }, { date: "01.04.2026 20:46:00", desc: "sogan", amount: 3000 },
-        { date: "01.04.2026 20:50:00", desc: "tornavıta", amount: 100 }, { date: "02.04.2026 13:07:00", desc: "ilaçlama", amount: 2000 },
-        { date: "02.04.2026 20:03:60", desc: "market", amount: 1000 }, { date: "02.04.2026 20:03:60", desc: "pazar yılmaz", amount: 1550 },
-        { date: "03.04.2026 12:13:60", desc: "maya", amount: 450 }, { date: "03.04.2026 18:45:60", desc: "yag", amount: 410 },
-        { date: "04.04.2026 20:26:60", desc: "Pazar", amount: 1300 }, { date: "05.04.2026 13:29:00", desc: "yag", amount: 410 },
-        { date: "05.04.2026 13:29:00", desc: "bulgur", amount: 200 }, { date: "05.04.2026 14:44:60", desc: "şeker", amount: 105 },
-        { date: "07.04.2026 11:24:00", desc: "yağ", amount: 410 }, { date: "07.04.2026 11:46:60", desc: "yumurta", amount: 100 },
-        { date: "07.04.2026 17:28:60", desc: "kunefe", amount: 1000 }, { date: "07.04.2026 20:53:60", desc: "pazar yılmaz", amount: 2000 },
-        { date: "08.04.2026 14:48:00", desc: "çay", amount: 220 }, { date: "08.04.2026 15:33:00", desc: "yağ", amount: 410 },
-        { date: "08.04.2026 16:30:60", desc: "zınpara", amount: 65 }, { date: "08.04.2026 18:29:00", desc: "sogan", amount: 2000 },
-        { date: "09.04.2026 11:48:00", desc: "market", amount: 250 }, { date: "09.04.2026 16:03:60", desc: "yogurt", amount: 110 },
-        { date: "09.04.2026 18:29:00", desc: "salça", amount: 100 }, { date: "09.04.2026 20:48:00", desc: "pazar yılmaz", amount: 1900 },
-        { date: "10.04.2026 18:06:60", desc: "kunefe", amount: 500 }, { date: "10.04.2026 20:53:00", desc: "market yılmaz", amount: 300 },
-        { date: "11.04.2026 19:18:00", desc: "pazar yılmaz", amount: 1100 }, { date: "11.04.2026 19:18:00", desc: "makbul", amount: 200 },
-        { date: "12.04.2026 20:51:00", desc: "sogan", amount: 1500 }, { date: "14.04.2026 14:30:00", desc: "domates", amount: 1200 },
-        { date: "14.04.2026 15:51:60", desc: "künefe", amount: 800 }, { date: "14.04.2026 20:51:00", desc: "pazar yılmaz", amount: 1500 },
-        { date: "15.04.2026 17:30:60", desc: "çig köfte", amount: 700 }, { date: "15.04.2026 20:24:00", desc: "yag", amount: 410 },
-        { date: "15.04.2026 20:24:00", desc: "market", amount: 380 }, { date: "16.04.2026 19:43:00", desc: "sogan", amount: 5300 },
-        { date: "16.04.2026 20:28:00", desc: "pazar yılmaz", amount: 950 }, { date: "17.04.2026 13:39:60", desc: "yağ", amount: 410 },
-        { date: "18.04.2026 14:44:60", desc: "yağ", amount: 410 }, { date: "19.04.2026 17:59:00", desc: "deterjan", amount: 150 },
-        { date: "19.04.2026 20:53:00", desc: "pazar yılmaz", amount: 1650 }, { date: "21.04.2026 12:09:60", desc: "yağ", amount: 410 },
-        { date: "21.04.2026 18:29:00", desc: "yılmaz Pazar", amount: 2130 }, { date: "22.04.2026 17:17:60", desc: "yag", amount: 410 },
-        { date: "22.04.2026 18:44:00", desc: "şeker", amount: 50 }, { date: "23.04.2026 11:24:60", desc: "detarjan", amount: 80 },
-        { date: "23.04.2026 12:36:60", desc: "mARKET", amount: 110 }, { date: "23.04.2026 18:15:00", desc: "sogan", amount: 1500 },
-        { date: "23.04.2026 20:46:00", desc: "pazar yılmaz", amount: 1650 }, { date: "24.04.2026 10:48:00", desc: "market", amount: 810 },
-        { date: "24.04.2026 15:11:60", desc: "tolga kuyruk", amount: 25000 }, { date: "24.04.2026 16:39:60", desc: "kunefe", amount: 800 },
-        { date: "24.04.2026 19:48:00", desc: "market", amount: 200 }, { date: "25.04.2026 17:19:60", desc: "yag şeker", amount: 520 },
-        { date: "25.04.2026 20:26:60", desc: "pazar yılmaz", amount: 1050 }, { date: "26.04.2026 22:34:60", desc: "sogan", amount: 3500 },
-        { date: "28.04.2026 16:02:00", desc: "künefe", amount: 1000 }, { date: "28.04.2026 21:08:00", desc: "pazar yılmaz", amount: 1150 }
+        { date: "01.04.2026 14:12", desc: "biber", amount: 170 }, { date: "01.04.2026 18:06", desc: "market", amount: 300 },
+        { date: "01.04.2026 20:28", desc: "pazar yılmaz", amount: 1650 }, { date: "01.04.2026 20:46", desc: "sogan", amount: 3000 },
+        { date: "01.04.2026 20:50", desc: "tornavıta", amount: 100 }, { date: "02.04.2026 13:07", desc: "ilaçlama", amount: 2000 },
+        { date: "02.04.2026 20:03", desc: "market", amount: 1000 }, { date: "02.04.2026 20:03", desc: "pazar yılmaz", amount: 1550 },
+        { date: "03.04.2026 12:13", desc: "maya", amount: 450 }, { date: "03.04.2026 18:45", desc: "yag", amount: 410 },
+        { date: "04.04.2026 20:26", desc: "Pazar", amount: 1300 }, { date: "05.04.2026 13:29", desc: "yag", amount: 410 },
+        { date: "05.04.2026 13:29", desc: "bulgur", amount: 200 }, { date: "05.04.2026 14:44", desc: "şeker", amount: 105 },
+        { date: "07.04.2026 11:24", desc: "yağ", amount: 410 }, { date: "07.04.2026 11:46", desc: "yumurta", amount: 100 },
+        { date: "07.04.2026 17:28", desc: "kunefe", amount: 1000 }, { date: "07.04.2026 20:53", desc: "pazar yılmaz", amount: 2000 },
+        { date: "08.04.2026 14:48", desc: "çay", amount: 220 }, { date: "08.04.2026 15:33", desc: "yağ", amount: 410 },
+        { date: "08.04.2026 16:30", desc: "zınpara", amount: 65 }, { date: "08.04.2026 18:29", desc: "sogan", amount: 2000 },
+        { date: "09.04.2026 11:48", desc: "market", amount: 250 }, { date: "09.04.2026 16:03", desc: "yogurt", amount: 110 },
+        { date: "09.04.2026 18:29", desc: "salça", amount: 100 }, { date: "09.04.2026 20:48", desc: "pazar yılmaz", amount: 1900 },
+        { date: "10.04.2026 18:06", desc: "kunefe", amount: 500 }, { date: "10.04.2026 20:53", desc: "market yılmaz", amount: 300 },
+        { date: "11.04.2026 19:18", desc: "pazar yılmaz", amount: 1100 }, { date: "11.04.2026 19:18", desc: "makbul", amount: 200 },
+        { date: "12.04.2026 20:51", desc: "sogan", amount: 1500 }, { date: "14.04.2026 14:30", desc: "domates", amount: 1200 },
+        { date: "14.04.2026 15:51", desc: "künefe", amount: 800 }, { date: "14.04.2026 20:51", desc: "pazar yılmaz", amount: 1500 },
+        { date: "15.04.2026 17:30", desc: "çig köfte", amount: 700 }, { date: "15.04.2026 20:24", desc: "yag", amount: 410 },
+        { date: "15.04.2026 20:24", desc: "market", amount: 380 }, { date: "16.04.2026 19:43", desc: "sogan", amount: 5300 },
+        { date: "16.04.2026 20:28", desc: "pazar yılmaz", amount: 950 }, { date: "17.04.2026 13:39", desc: "yağ", amount: 410 },
+        { date: "18.04.2026 14:44", desc: "yağ", amount: 410 }, { date: "19.04.2026 17:59", desc: "deterjan", amount: 150 },
+        { date: "19.04.2026 20:53", desc: "pazar yılmaz", amount: 1650 }, { date: "21.04.2026 12:09", desc: "yağ", amount: 410 },
+        { date: "21.04.2026 18:29", desc: "yılmaz Pazar", amount: 2130 }, { date: "22.04.2026 17:17", desc: "yag", amount: 410 },
+        { date: "22.04.2026 18:44", desc: "şeker", amount: 50 }, { date: "23.04.2026 11:24", desc: "detarjan", amount: 80 },
+        { date: "23.04.2026 12:36", desc: "mARKET", amount: 110 }, { date: "23.04.2026 18:15", desc: "sogan", amount: 1500 },
+        { date: "23.04.2026 20:46", desc: "pazar yılmaz", amount: 1650 }, { date: "24.04.2026 10:48", desc: "market", amount: 810 },
+        { date: "24.04.2026 15:11", desc: "tolga kuyruk", amount: 25000 }, { date: "24.04.2026 16:39", desc: "kunefe", amount: 800 },
+        { date: "24.04.2026 19:48", desc: "market", amount: 200 }, { date: "25.04.2026 17:19", desc: "yag şeker", amount: 520 },
+        { date: "25.04.2026 20:26", desc: "pazar yılmaz", amount: 1050 }, { date: "26.04.2026 22:34", desc: "sogan", amount: 3500 },
+        { date: "28.04.2026 16:02", desc: "künefe", amount: 1000 }, { date: "28.04.2026 21:08", desc: "pazar yılmaz", amount: 1150 }
     ];
     
     const nisanKredi = [
-        { date: "01.04.2026 11:08:60", desc: "yağ", amount: 410 }, { date: "02.04.2026 12:27:60", desc: "hayrettın ayran", amount: 3500 },
-        { date: "02.04.2026 12:27:60", desc: "eski alınan kırıntı parası", amount: 11200 }, { date: "03.04.2026 15:58:60", desc: "kömürcü", amount: 8000 },
-        { date: "03.04.2026 15:58:60", desc: "et kredi kart", amount: 10000 }, { date: "04.04.2026 13:03:00", desc: "ayran", amount: 9350 },
-        { date: "04.04.2026 14:37:00", desc: "uncu kart ile", amount: 20000 }, { date: "07.04.2026 11:08:60", desc: "kaşarcı", amount: 4000 },
-        { date: "07.04.2026 11:08:60", desc: "motorun sigortası", amount: 5710 }, { date: "07.04.2026 11:08:60", desc: "alparslan eft", amount: 14000 },
-        { date: "07.04.2026 11:19:00", desc: "yılmaz pazar et eft", amount: 9000 }, { date: "08.04.2026 12:51:00", desc: "et eft", amount: 9600 },
-        { date: "09.04.2026 13:16:00", desc: "kolacı", amount: 2910 }, { date: "10.04.2026 12:42:60", desc: "tavukçu eft", amount: 4000 },
-        { date: "10.04.2026 12:42:60", desc: "yağ kart ile", amount: 410 }, { date: "10.04.2026 20:46:60", desc: "sogan", amount: 1000 },
-        { date: "11.04.2026 12:31:60", desc: "et eft", amount: 8950 }, { date: "14.04.2026 11:12:60", desc: "pazarcı maşo eft", amount: 17000 },
-        { date: "15.04.2026 11:28:60", desc: "tavukçu ömer eft", amount: 6000 }, { date: "16.04.2026 12:04:00", desc: "et kart ile", amount: 8965 },
-        { date: "16.04.2026 12:04:60", desc: "alparslan eft", amount: 10750 }, { date: "16.04.2026 12:56:00", desc: "pazar eft", amount: 7400 },
-        { date: "16.04.2026 14:37:60", desc: "baharatçı eft", amount: 4000 }, { date: "17.04.2026 10:03:00", desc: "kaşarcı eft", amount: 4000 },
-        { date: "17.04.2026 13:09:60", desc: "tavukçu eft", amount: 5000 }, { date: "17.04.2026 13:11:00", desc: "yılmaz kartından ödenen doğalgaz", amount: 10000 },
-        { date: "18.04.2026 12:06:60", desc: "ambalaj eft", amount: 8000 }, { date: "18.04.2026 12:22:60", desc: "AYRAN EFT", amount: 9760 },
-        { date: "18.04.2026 15:00:00", desc: "ET YILMAZ 1200 TL BORÇ", amount: 3685 }, { date: "19.04.2026 09:31:00", desc: "et eft", amount: 13340 },
-        { date: "21.04.2026 09:38:60", desc: "alparslan eft", amount: 11000 }, { date: "21.04.2026 14:28:60", desc: "kolacı yavuz kart ile", amount: 7000 },
-        { date: "23.04.2026 11:24:60", desc: "alparslan eft", amount: 3000 }, { date: "23.04.2026 12:51:00", desc: "HAK TAVUKÇU EFT", amount: 3680 },
-        { date: "23.04.2026 13:38:00", desc: "pepsi kola eft", amount: 1470 }, { date: "24.04.2026 10:48:00", desc: "kaşarci eft", amount: 4000 },
-        { date: "25.04.2026 11:48:00", desc: "silikon", amount: 150 }, { date: "25.04.2026 14:26:00", desc: "uncu kart ile", amount: 18000 },
-        { date: "28.04.2026 13:29:00", desc: "yılmaz karttından eski ödenen doğalgaz", amount: 30000 }, { date: "28.04.2026 13:29:00", desc: "alparslan eft", amount: 10000 },
-        { date: "30.04.2026 12:47:60", desc: "agadan alınan et eft", amount: 17900 }, { date: "30.04.2026 12:49:00", desc: "alparlan eft", amount: 4000 },
-        { date: "30.04.2026 12:49:00", desc: "alparlan eft", amount: 1000 }
+        { date: "01.04.2026 11:08", desc: "yağ", amount: 410 }, { date: "02.04.2026 12:27", desc: "hayrettın ayran", amount: 3500 },
+        { date: "02.04.2026 12:27", desc: "eski alınan kırıntı parası", amount: 11200 }, { date: "03.04.2026 15:58", desc: "kömürcü", amount: 8000 },
+        { date: "03.04.2026 15:58", desc: "et kredi kart", amount: 10000 }, { date: "04.04.2026 13:03", desc: "ayran", amount: 9350 },
+        { date: "04.04.2026 14:37", desc: "uncu kart ile", amount: 20000 }, { date: "07.04.2026 11:08", desc: "kaşarcı", amount: 4000 },
+        { date: "07.04.2026 11:08", desc: "motorun sigortası", amount: 5710 }, { date: "07.04.2026 11:08", desc: "alparslan eft", amount: 14000 },
+        { date: "07.04.2026 11:19", desc: "yılmaz pazar et eft", amount: 9000 }, { date: "08.04.2026 12:51", desc: "et eft", amount: 9600 },
+        { date: "09.04.2026 13:16", desc: "kolacı", amount: 2910 }, { date: "10.04.2026 12:42", desc: "tavukçu eft", amount: 4000 },
+        { date: "10.04.2026 12:42", desc: "yağ kart ile", amount: 410 }, { date: "10.04.2026 20:46", desc: "sogan", amount: 1000 },
+        { date: "11.04.2026 12:31", desc: "et eft", amount: 8950 }, { date: "14.04.2026 11:12", desc: "pazarcı maşo eft", amount: 17000 },
+        { date: "15.04.2026 11:28", desc: "tavukçu ömer eft", amount: 6000 }, { date: "16.04.2026 12:04", desc: "et kart ile", amount: 8965 },
+        { date: "16.04.2026 12:04", desc: "alparslan eft", amount: 10750 }, { date: "16.04.2026 12:56", desc: "pazar eft", amount: 7400 },
+        { date: "16.04.2026 14:37", desc: "baharatçı eft", amount: 4000 }, { date: "17.04.2026 10:03", desc: "kaşarcı eft", amount: 4000 },
+        { date: "17.04.2026 13:09", desc: "tavukçu eft", amount: 5000 }, { date: "17.04.2026 13:11", desc: "yılmaz kartından ödenen doğalgaz", amount: 10000 },
+        { date: "18.04.2026 12:06", desc: "ambalaj eft", amount: 8000 }, { date: "18.04.2026 12:22", desc: "AYRAN EFT", amount: 9760 },
+        { date: "18.04.2026 15:00", desc: "ET YILMAZ 1200 TL BORÇ", amount: 3685 }, { date: "19.04.2026 09:31", desc: "et eft", amount: 13340 },
+        { date: "21.04.2026 09:38", desc: "alparslan eft", amount: 11000 }, { date: "21.04.2026 14:28", desc: "kolacı yavuz kart ile", amount: 7000 },
+        { date: "23.04.2026 11:24", desc: "alparslan eft", amount: 3000 }, { date: "23.04.2026 12:51", desc: "HAK TAVUKÇU EFT", amount: 3680 },
+        { date: "23.04.2026 13:38", desc: "pepsi kola eft", amount: 1470 }, { date: "24.04.2026 10:48", desc: "kaşarci eft", amount: 4000 },
+        { date: "25.04.2026 11:48", desc: "silikon", amount: 150 }, { date: "25.04.2026 14:26", desc: "uncu kart ile", amount: 18000 },
+        { date: "28.04.2026 13:29", desc: "yılmaz karttından eski ödenen doğalgaz", amount: 30000 }, { date: "28.04.2026 13:29", desc: "alparslan eft", amount: 10000 },
+        { date: "30.04.2026 12:47", desc: "agadan alınan et eft", amount: 17900 }, { date: "30.04.2026 12:49", desc: "alparlan eft", amount: 4000 },
+        { date: "30.04.2026 12:49", desc: "alparlan eft", amount: 1000 }
     ];
     
     // ============================================================
@@ -257,17 +265,21 @@
     const mayis = {
         brütCiro: 1034774.65,
         trendyolBrüt: 188205.71,
-        trendyolNet: 188205.71 * 0.6,
+        trendyolNet: 188205.71 * 0.5,
+        getirBrüt: 0,
+        getirNet: 0,
         digerSatislar: 1034774.65 - 188205.71,
-        netCiro: (1034774.65 - 188205.71) + (188205.71 * 0.6),
+        netCiro: (1034774.65 - 188205.71) + (188205.71 * 0.5),
         nakitGider: 44585.00,
         krediGider: 314150.00,
         telefon: 1100.00,
         calismaGunu: mayisCalismaGunu,
-        gunlukCiro: ((1034774.65 - 188205.71) + (188205.71 * 0.6)) / mayisCalismaGunu,
+        gunlukCiro: ((1034774.65 - 188205.71) + (188205.71 * 0.5)) / mayisCalismaGunu,
         personelGider: (2200 + 2500 + 1800 + 1100 + 2000 + 2000) * mayisCalismaGunu,
         toplamGider: 0,
-        netKar: 0
+        netKar: 0,
+        kiraOdenmedi: true,
+        yusufBorcu: 110820
     };
     mayis.toplamGider = mayis.nakitGider + mayis.krediGider + mayis.telefon + mayis.personelGider;
     mayis.netKar = mayis.netCiro - mayis.toplamGider;
@@ -282,102 +294,285 @@
     ];
     
     const mayisNakit = [
-        { date: "02.05.2026 20:33:27", desc: "pazar yılmaz", amount: 1700 }, { date: "03.05.2026 20:34:51", desc: "yag", amount: 400 },
-        { date: "03.05.2026 20:45:35", desc: "yılmaz limon", amount: 1000 }, { date: "03.05.2026 22:31:30", desc: "sogan", amount: 1000 },
-        { date: "05.05.2026 14:33:24", desc: "yağ", amount: 410 }, { date: "05.05.2026 14:33:39", desc: "salatalık", amount: 120 },
-        { date: "05.05.2026 20:53:10", desc: "pazar", amount: 1400 }, { date: "05.05.2026 21:34:41", desc: "sogan", amount: 1000 },
-        { date: "05.05.2026 21:35:06", desc: "pazar yılmaz", amount: 1400 }, { date: "06.05.2026 15:50:26", desc: "benzin", amount: 200 },
-        { date: "06.05.2026 16:19:07", desc: "yogurt", amount: 130 }, { date: "07.05.2026 17:12:50", desc: "sogan", amount: 1000 },
-        { date: "07.05.2026 17:25:20", desc: "benzin", amount: 200 }, { date: "07.05.2026 20:36:07", desc: "yag", amount: 430 },
-        { date: "07.05.2026 21:01:43", desc: "pazar yılmaz", amount: 1800 }, { date: "08.05.2026 19:00:20", desc: "kunefe", amount: 1000 },
-        { date: "08.05.2026 20:38:36", desc: "market", amount: 800 }, { date: "08.05.2026 22:37:16", desc: "sogan", amount: 1500 },
-        { date: "09.05.2026 20:02:22", desc: "band", amount: 100 }, { date: "09.05.2026 20:14:16", desc: "pazar yılmaz", amount: 1350 },
-        { date: "10.05.2026 21:19:04", desc: "yag", amount: 430 }, { date: "12.05.2026 15:08:26", desc: "KÜNEFE", amount: 300 },
-        { date: "12.05.2026 17:29:50", desc: "SOGAN", amount: 1000 }, { date: "12.05.2026 20:23:01", desc: "YILMAZ PAZAR", amount: 2230 },
-        { date: "14.05.2026 20:37:05", desc: "yılmaz pazar", amount: 1265 }, { date: "14.05.2026 20:37:17", desc: "market", amount: 600 },
-        { date: "15.05.2026 11:28:30", desc: "market", amount: 100 }, { date: "15.05.2026 15:20:35", desc: "künefe", amount: 1000 },
-        { date: "16.05.2026 14:29:46", desc: "MAROL", amount: 500 }, { date: "16.05.2026 16:52:29", desc: "yılmaz pazar", amount: 875 },
-        { date: "17.05.2026 11:25:08", desc: "market", amount: 500 }, { date: "17.05.2026 15:19:36", desc: "market", amount: 165 },
-        { date: "17.05.2026 20:12:57", desc: "market", amount: 100 }, { date: "19.05.2026 14:45:55", desc: "kaşarcı", amount: 250 },
-        { date: "19.05.2026 18:04:03", desc: "yag", amount: 430 }, { date: "20.05.2026 15:15:10", desc: "detarjan", amount: 300 },
-        { date: "21.05.2026 16:15:24", desc: "pazar yılmaz", amount: 1200 }, { date: "21.05.2026 18:01:04", desc: "alpaslan şimdiye kadar aldığı", amount: 3000 },
-        { date: "21.05.2026 18:44:35", desc: "sogan", amount: 2000 }, { date: "22.05.2026 17:07:03", desc: "kunefe", amount: 2000 },
-        { date: "22.05.2026 17:24:59", desc: "yılmaz pazar", amount: 1450 }, { date: "23.05.2026 20:54:58", desc: "yılmaz pazar", amount: 1550 },
-        { date: "23.05.2026 23:05:04", desc: "market", amount: 650 }, { date: "24.05.2026 21:19:48", desc: "market", amount: 500 },
-        { date: "24.05.2026 21:36:09", desc: "sogan", amount: 2000 }, { date: "25.05.2026 16:01:37", desc: "maya", amount: 200 },
-        { date: "25.05.2026 16:01:47", desc: "domates", amount: 450 }, { date: "25.05.2026 21:09:54", desc: "market", amount: 600 },
-        { date: "25.05.2026 21:10:06", desc: "pazar yılmaz", amount: 1300 }, { date: "26.05.2026 20:47:20", desc: "pazar yılmaz", amount: 700 }
+        { date: "02.05.2026 20:33", desc: "pazar yılmaz", amount: 1700 }, { date: "03.05.2026 20:34", desc: "yag", amount: 400 },
+        { date: "03.05.2026 20:45", desc: "yılmaz limon", amount: 1000 }, { date: "03.05.2026 22:31", desc: "sogan", amount: 1000 },
+        { date: "05.05.2026 14:33", desc: "yağ", amount: 410 }, { date: "05.05.2026 14:33", desc: "salatalık", amount: 120 },
+        { date: "05.05.2026 20:53", desc: "pazar", amount: 1400 }, { date: "05.05.2026 21:34", desc: "sogan", amount: 1000 },
+        { date: "05.05.2026 21:35", desc: "pazar yılmaz", amount: 1400 }, { date: "06.05.2026 15:50", desc: "benzin", amount: 200 },
+        { date: "06.05.2026 16:19", desc: "yogurt", amount: 130 }, { date: "07.05.2026 17:12", desc: "sogan", amount: 1000 },
+        { date: "07.05.2026 17:25", desc: "benzin", amount: 200 }, { date: "07.05.2026 20:36", desc: "yag", amount: 430 },
+        { date: "07.05.2026 21:01", desc: "pazar yılmaz", amount: 1800 }, { date: "08.05.2026 19:00", desc: "kunefe", amount: 1000 },
+        { date: "08.05.2026 20:38", desc: "market", amount: 800 }, { date: "08.05.2026 22:37", desc: "sogan", amount: 1500 },
+        { date: "09.05.2026 20:02", desc: "band", amount: 100 }, { date: "09.05.2026 20:14", desc: "pazar yılmaz", amount: 1350 },
+        { date: "10.05.2026 21:19", desc: "yag", amount: 430 }, { date: "12.05.2026 15:08", desc: "KÜNEFE", amount: 300 },
+        { date: "12.05.2026 17:29", desc: "SOGAN", amount: 1000 }, { date: "12.05.2026 20:23", desc: "YILMAZ PAZAR", amount: 2230 },
+        { date: "14.05.2026 20:37", desc: "yılmaz pazar", amount: 1265 }, { date: "14.05.2026 20:37", desc: "market", amount: 600 },
+        { date: "15.05.2026 11:28", desc: "market", amount: 100 }, { date: "15.05.2026 15:20", desc: "künefe", amount: 1000 },
+        { date: "16.05.2026 14:29", desc: "MAROL", amount: 500 }, { date: "16.05.2026 16:52", desc: "yılmaz pazar", amount: 875 },
+        { date: "17.05.2026 11:25", desc: "market", amount: 500 }, { date: "17.05.2026 15:19", desc: "market", amount: 165 },
+        { date: "17.05.2026 20:12", desc: "market", amount: 100 }, { date: "19.05.2026 14:45", desc: "kaşarcı", amount: 250 },
+        { date: "19.05.2026 18:04", desc: "yag", amount: 430 }, { date: "20.05.2026 15:15", desc: "detarjan", amount: 300 },
+        { date: "21.05.2026 16:15", desc: "pazar yılmaz", amount: 1200 }, { date: "21.05.2026 18:01", desc: "alpaslan şimdiye kadar aldığı", amount: 3000 },
+        { date: "21.05.2026 18:44", desc: "sogan", amount: 2000 }, { date: "22.05.2026 17:07", desc: "kunefe", amount: 2000 },
+        { date: "22.05.2026 17:24", desc: "yılmaz pazar", amount: 1450 }, { date: "23.05.2026 20:54", desc: "yılmaz pazar", amount: 1550 },
+        { date: "23.05.2026 23:05", desc: "market", amount: 650 }, { date: "24.05.2026 21:19", desc: "market", amount: 500 },
+        { date: "24.05.2026 21:36", desc: "sogan", amount: 2000 }, { date: "25.05.2026 16:01", desc: "maya", amount: 200 },
+        { date: "25.05.2026 16:01", desc: "domates", amount: 450 }, { date: "25.05.2026 21:09", desc: "market", amount: 600 },
+        { date: "25.05.2026 21:10", desc: "pazar yılmaz", amount: 1300 }, { date: "26.05.2026 20:47", desc: "pazar yılmaz", amount: 700 }
     ];
     
     const mayisKredi = [
-        { date: "02.05.2026 12:37:26", desc: "ambalaş kredi kartı", amount: 8000 }, { date: "05.05.2026 12:31:08", desc: "alparslan eft kredi kartı", amount: 10000 },
-        { date: "05.05.2026 12:32:04", desc: "et kredi kartı", amount: 12305 }, { date: "06.05.2026 12:35:18", desc: "tavukçu eft kredi kartı", amount: 5000 },
-        { date: "06.05.2026 12:35:40", desc: "alparslan eft kredi kartı", amount: 5000 }, { date: "07.05.2026 13:17:19", desc: "pazarci maşo eft kredi kartı", amount: 20000 },
-        { date: "08.05.2026 16:21:00", desc: "hayrettın ayran kart kredi kartı", amount: 4000 }, { date: "09.05.2026 12:13:59", desc: "bilal ambalaj eft kredi kartı", amount: 1750 },
-        { date: "10.05.2026 14:05:07", desc: "et kredi kartı", amount: 7850 }, { date: "12.05.2026 13:52:12", desc: "KAŞARCI EFT KREDİ KARTI", amount: 4000 },
-        { date: "12.05.2026 13:55:01", desc: "AMBALAJ EFT KREDİ KARTI", amount: 5000 }, { date: "12.05.2026 14:05:00", desc: "TOLGA KUYRIK EFT KREDİ KARTI", amount: 10000 },
-        { date: "13.05.2026 09:33:58", desc: "et eft Kredi Kartı", amount: 8160 }, { date: "13.05.2026 13:39:07", desc: "doğal gaz eft kredi kart", amount: 750 },
-        { date: "14.05.2026 12:33:35", desc: "ALPARSALAN EFT KREDİ KARTI", amount: 15000 }, { date: "15.05.2026 11:28:41", desc: "kaşarcı eft kredi kartı", amount: 9000 },
-        { date: "16.05.2026 11:22:23", desc: "limoncu eft kredi karı", amount: 4500 }, { date: "16.05.2026 11:41:42", desc: "et kredi kart", amount: 8100 },
-        { date: "16.05.2026 12:50:11", desc: "UNCU KREDİ KARTI", amount: 13000 }, { date: "19.05.2026 11:37:05", desc: "et kredi kartı", amount: 8380 },
-        { date: "19.05.2026 12:55:08", desc: "ayran kredi kartı", amount: 12000 }, { date: "19.05.2026 12:55:20", desc: "alparlan eft kredi kartı", amount: 7000 },
-        { date: "19.05.2026 14:40:28", desc: "ambalaj kredi kartı", amount: 7000 }, { date: "21.05.2026 11:12:01", desc: "tavukçu eft kredi kartı", amount: 600 },
-        { date: "21.05.2026 11:12:21", desc: "tavukcu eft kredi kartı", amount: 5400 }, { date: "21.05.2026 11:14:01", desc: "alp arslan eft kredi kartı", amount: 7000 },
-        { date: "21.05.2026 13:46:16", desc: "kola su eft kredi kartı", amount: 7375 }, { date: "21.05.2026 16:05:42", desc: "baharat EFT kredi kartı", amount: 6000 },
-        { date: "21.05.2026 16:06:07", desc: "ayrancı hayrettin EFT kredi kartı", amount: 3000 }, { date: "23.05.2026 12:07:22", desc: "et dün ile bügün eft kredi kartı", amount: 11535 },
-        { date: "23.05.2026 12:08:23", desc: "pazarcı maşo eft kredi kartı", amount: 25000 }, { date: "23.05.2026 16:40:21", desc: "tolga koyruk eft kredi kartı", amount: 20000 },
-        { date: "25.05.2026 11:42:53", desc: "et eft kredi kartı", amount: 8445 }, { date: "25.05.2026 14:41:07", desc: "kaşarcı eft kredi kartı", amount: 5000 },
-        { date: "26.05.2026 13:34:18", desc: "uncu ümit eft kredi kartı", amount: 10000 }, { date: "26.05.2026 20:03:10", desc: "alparlan EFT kredi kartı", amount: 19000 }
+        { date: "02.05.2026 12:37", desc: "ambalaş kredi kartı", amount: 8000 }, { date: "05.05.2026 12:31", desc: "alparslan eft kredi kartı", amount: 10000 },
+        { date: "05.05.2026 12:32", desc: "et kredi kartı", amount: 12305 }, { date: "06.05.2026 12:35", desc: "tavukçu eft kredi kartı", amount: 5000 },
+        { date: "06.05.2026 12:35", desc: "alparslan eft kredi kartı", amount: 5000 }, { date: "07.05.2026 13:17", desc: "pazarci maşo eft kredi kartı", amount: 20000 },
+        { date: "08.05.2026 16:21", desc: "hayrettın ayran kart kredi kartı", amount: 4000 }, { date: "09.05.2026 12:13", desc: "bilal ambalaj eft kredi kartı", amount: 1750 },
+        { date: "10.05.2026 14:05", desc: "et kredi kartı", amount: 7850 }, { date: "12.05.2026 13:52", desc: "KAŞARCI EFT KREDİ KARTI", amount: 4000 },
+        { date: "12.05.2026 13:55", desc: "AMBALAJ EFT KREDİ KARTI", amount: 5000 }, { date: "12.05.2026 14:05", desc: "TOLGA KUYRIK EFT KREDİ KARTI", amount: 10000 },
+        { date: "13.05.2026 09:33", desc: "et eft Kredi Kartı", amount: 8160 }, { date: "13.05.2026 13:39", desc: "doğal gaz eft kredi kart", amount: 750 },
+        { date: "14.05.2026 12:33", desc: "ALPARSALAN EFT KREDİ KARTI", amount: 15000 }, { date: "15.05.2026 11:28", desc: "kaşarcı eft kredi kartı", amount: 9000 },
+        { date: "16.05.2026 11:22", desc: "limoncu eft kredi karı", amount: 4500 }, { date: "16.05.2026 11:41", desc: "et kredi kart", amount: 8100 },
+        { date: "16.05.2026 12:50", desc: "UNCU KREDİ KARTI", amount: 13000 }, { date: "19.05.2026 11:37", desc: "et kredi kartı", amount: 8380 },
+        { date: "19.05.2026 12:55", desc: "ayran kredi kartı", amount: 12000 }, { date: "19.05.2026 12:55", desc: "alparlan eft kredi kartı", amount: 7000 },
+        { date: "19.05.2026 14:40", desc: "ambalaj kredi kartı", amount: 7000 }, { date: "21.05.2026 11:12", desc: "tavukçu eft kredi kartı", amount: 600 },
+        { date: "21.05.2026 11:12", desc: "tavukcu eft kredi kartı", amount: 5400 }, { date: "21.05.2026 11:14", desc: "alp arslan eft kredi kartı", amount: 7000 },
+        { date: "21.05.2026 13:46", desc: "kola su eft kredi kartı", amount: 7375 }, { date: "21.05.2026 16:05", desc: "baharat EFT kredi kartı", amount: 6000 },
+        { date: "21.05.2026 16:06", desc: "ayrancı hayrettin EFT kredi kartı", amount: 3000 }, { date: "23.05.2026 12:07", desc: "et dün ile bügün eft kredi kartı", amount: 11535 },
+        { date: "23.05.2026 12:08", desc: "pazarcı maşo eft kredi kartı", amount: 25000 }, { date: "23.05.2026 16:40", desc: "tolga koyruk eft kredi kartı", amount: 20000 },
+        { date: "25.05.2026 11:42", desc: "et eft kredi kartı", amount: 8445 }, { date: "25.05.2026 14:41", desc: "kaşarcı eft kredi kartı", amount: 5000 },
+        { date: "26.05.2026 13:34", desc: "uncu ümit eft kredi kartı", amount: 10000 }, { date: "26.05.2026 20:03", desc: "alparlan EFT kredi kartı", amount: 19000 }
     ];
     
     const mayisTotalNakit = mayisNakit.reduce((s, t) => s + t.amount, 0);
     const mayisTotalKredi = mayisKredi.reduce((s, t) => s + t.amount, 0);
     
     // ============================================================
-    // RENDER FONKSİYONLARI (Nisan)
+    // HAZİRAN 2026 VERİLERİ (PDF'ten)
     // ============================================================
-    function renderNisanOverview() {
+    const haziranCalismaGunu = 25; // 30 gün - 5 Pazartesi
+    
+    const haziranNakitData = [
+        { date: "01.06.2026 13:55", desc: "market yağ", amount: 500.00 },
+        { date: "01.06.2026 16:02", desc: "pazar yılmaz", amount: 2700.00 },
+        { date: "01.06.2026 19:01", desc: "ahmet abı çay", amount: 500.00 },
+        { date: "01.06.2026 20:00", desc: "pazar yılmaz", amount: 1400.00 },
+        { date: "01.06.2026 20:07", desc: "sogan", amount: 5000.00 },
+        { date: "02.06.2026 21:00", desc: "pazar yılmaz", amount: 1100.00 },
+        { date: "03.06.2026 13:07", desc: "market yağ", amount: 500.00 },
+        { date: "03.06.2026 21:51", desc: "sogan", amount: 2000.00 },
+        { date: "03.06.2026 21:52", desc: "makbul", amount: 200.00 },
+        { date: "05.06.2026 21:18", desc: "market yılmaz", amount: 650.00 },
+        { date: "06.06.2026 14:10", desc: "ilaçlama", amount: 2000.00 },
+        { date: "06.06.2026 15:38", desc: "sogan", amount: 1000.00 },
+        { date: "06.06.2026 20:23", desc: "yag", amount: 430.00 },
+        { date: "06.06.2026 21:51", desc: "pazar yılmaz", amount: 1000.00 },
+        { date: "07.06.2026 12:58", desc: "test", amount: 1.00 },
+        { date: "09.06.2026 16:21", desc: "maya", amount: 300.00 },
+        { date: "09.06.2026 17:15", desc: "sogan", amount: 3000.00 },
+        { date: "09.06.2026 17:32", desc: "yag", amount: 430.00 },
+        { date: "09.06.2026 20:53", desc: "pazar yılmaz", amount: 1400.00 },
+        { date: "10.06.2026 21:18", desc: "bulgur", amount: 150.00 },
+        { date: "12.06.2026 13:52", desc: "künefe", amount: 2000.00 },
+        { date: "12.06.2026 13:52", desc: "legen", amount: 440.00 },
+        { date: "12.06.2026 22:07", desc: "PAZAR", amount: 500.00 },
+        { date: "13.06.2026 13:54", desc: "yağ", amount: 450.00 },
+        { date: "13.06.2026 21:20", desc: "benzin", amount: 200.00 },
+        { date: "14.06.2026 10:00", desc: "pazar", amount: 850.00 },
+        { date: "14.06.2026 14:35", desc: "bulgur", amount: 150.00 },
+        { date: "14.06.2026 15:30", desc: "pazar yılmaz", amount: 1500.00 },
+        { date: "14.06.2026 17:20", desc: "yağ", amount: 450.00 },
+        { date: "14.06.2026 20:53", desc: "sogan", amount: 4000.00 },
+        { date: "14.06.2026 20:54", desc: "sogan", amount: 600.00 },
+        { date: "16.06.2026 22:13", desc: "PAZAR YILMAZ", amount: 850.00 },
+        { date: "19.06.2026 17:29", desc: "bilgisayar", amount: 1500.00 },
+        { date: "19.06.2026 17:30", desc: "yağ", amount: 450.00 },
+        { date: "19.06.2026 17:31", desc: "streç", amount: 800.00 },
+        { date: "19.06.2026 17:32", desc: "maya", amount: 250.00 },
+        { date: "19.06.2026 20:57", desc: "maya", amount: 350.00 },
+        { date: "19.06.2026 21:13", desc: "sogan", amount: 5000.00 },
+        { date: "20.06.2026 21:10", desc: "PAZAR YILMAZ", amount: 1000.00 },
+        { date: "21.06.2026 15:34", desc: "market", amount: 500.00 },
+        { date: "21.06.2026 20:48", desc: "bulgur", amount: 160.00 },
+        { date: "23.06.2026 14:55", desc: "kablo", amount: 250.00 },
+        { date: "23.06.2026 16:49", desc: "künefe", amount: 600.00 },
+        { date: "23.06.2026 21:12", desc: "pazar yılmaz", amount: 1350.00 },
+        { date: "24.06.2026 13:27", desc: "market", amount: 200.00 },
+        { date: "24.06.2026 21:33", desc: "sogan", amount: 4000.00 },
+        { date: "25.06.2026 12:29", desc: "maya", amount: 250.00 },
+        { date: "25.06.2026 12:33", desc: "detarjan", amount: 190.00 },
+        { date: "25.06.2026 20:43", desc: "pazar yılmaz", amount: 1250.00 },
+        { date: "26.06.2026 15:36", desc: "künefe", amount: 800.00 },
+        { date: "26.06.2026 20:30", desc: "yogurt", amount: 120.00 },
+        { date: "26.06.2026 20:46", desc: "çay", amount: 300.00 },
+        { date: "26.06.2026 22:33", desc: "sogan", amount: 3000.00 },
+        { date: "27.06.2026 21:07", desc: "pazar yılmaz", amount: 1800.00 },
+        { date: "28.06.2026 20:40", desc: "market yılmaz", amount: 360.00 },
+        { date: "30.06.2026 12:23", desc: "market", amount: 300.00 },
+        { date: "30.06.2026 21:15", desc: "pazar yılmaz", amount: 1700.00 }
+    ];
+    
+    const haziranKrediData = [
+        { date: "01.06.2026 15:34", desc: "ayran eft kredi kartı", amount: 7510.00 },
+        { date: "01.06.2026 18:33", desc: "Çay EFT kredi kartı", amount: 5000.00 },
+        { date: "02.06.2026 11:22", desc: "et eft kredi kartı", amount: 3800.00 },
+        { date: "02.06.2026 11:22", desc: "tavukçu eft kredi kartı", amount: 6250.00 },
+        { date: "02.06.2026 11:23", desc: "su faturası eft kredi kartı", amount: 1215.00 },
+        { date: "02.06.2026 11:24", desc: "su eft kredi kartı", amount: 1220.00 },
+        { date: "02.06.2026 11:24", desc: "elektirik eft kredi kartı", amount: 3570.00 },
+        { date: "02.06.2026 12:36", desc: "dolap eft kredi kartı", amount: 10000.00 },
+        { date: "04.06.2026 16:35", desc: "kola eft kredi kartı", amount: 1950.00 },
+        { date: "04.06.2026 16:53", desc: "kola eft kredi kartı", amount: 1935.00 },
+        { date: "04.06.2026 17:00", desc: "et eft kredi kartı", amount: 5750.00 },
+        { date: "05.06.2026 11:58", desc: "limoncu eft kredi kartı", amount: 4000.00 },
+        { date: "05.06.2026 12:01", desc: "kaşarıcı eft kredi kartı", amount: 4000.00 },
+        { date: "06.06.2026 13:53", desc: "ambalaj eft kredi kartı", amount: 8500.00 },
+        { date: "09.06.2026 12:01", desc: "doğalgaz fatura kredi kartı", amount: 14000.00 },
+        { date: "09.06.2026 12:01", desc: "alp arslan eft kredi kartı", amount: 16000.00 },
+        { date: "10.06.2026 13:38", desc: "et kasap kredi kartı", amount: 5315.00 },
+        { date: "10.06.2026 13:38", desc: "et kasap kredi kartı", amount: 5000.00 },
+        { date: "11.06.2026 11:57", desc: "ayrancı kredi kartı", amount: 12735.00 },
+        { date: "11.06.2026 14:02", desc: "baharatçı arif kredi kartı", amount: 4000.00 },
+        { date: "13.06.2026 13:50", desc: "ambalaj kredi kartı", amount: 5000.00 },
+        { date: "13.06.2026 14:57", desc: "kömürcu borç bitti eft kredi kartı", amount: 15000.00 },
+        { date: "13.06.2026 14:57", desc: "et yağı eft kredi kartı", amount: 6140.00 },
+        { date: "14.06.2026 12:01", desc: "kasap et kredi kartı", amount: 11890.00 },
+        { date: "16.06.2026 10:31", desc: "kaşar kredi kartı", amount: 4000.00 },
+        { date: "16.06.2026 11:38", desc: "motor tamirci eft kredi kartı", amount: 2500.00 },
+        { date: "17.06.2026 13:23", desc: "uncu kredi kartı", amount: 20000.00 },
+        { date: "20.06.2026 11:57", desc: "tavukçu eft kredi kartı", amount: 7000.00 },
+        { date: "20.06.2026 11:57", desc: "kasap kredi kartı", amount: 10000.00 },
+        { date: "20.06.2026 12:47", desc: "ambalaj eft kredi kartı", amount: 4000.00 },
+        { date: "23.06.2026 11:09", desc: "kaşarcı eft kredi kartı", amount: 4000.00 },
+        { date: "23.06.2026 11:10", desc: "kurye doğan eft kredi kartı", amount: 13500.00 },
+        { date: "23.06.2026 11:19", desc: "et kredi kartı eft", amount: 8965.00 },
+        { date: "25.06.2026 14:23", desc: "kola kredi kartı", amount: 1350.00 },
+        { date: "25.06.2026 15:11", desc: "baharatçi arif kredi kartı", amount: 3700.00 },
+        { date: "25.06.2026 17:16", desc: "alparslan eft kredi kartı", amount: 7500.00 },
+        { date: "26.06.2026 09:25", desc: "et kredi kartı eft", amount: 8940.00 },
+        { date: "30.06.2026 10:58", desc: "doğan kurye eft kredi kartı", amount: 15000.00 },
+        { date: "30.06.2026 10:58", desc: "kaşar eft kredi kartı", amount: 4000.00 },
+        { date: "30.06.2026 11:27", desc: "pazarci maşo eft kredi kartı", amount: 20000.00 },
+        { date: "30.06.2026 11:30", desc: "yılmaz borcumuz eft kredi kartı", amount: 9850.00 },
+        { date: "30.06.2026 11:45", desc: "ayran hayrettin", amount: 6000.00 },
+        { date: "30.06.2026 11:52", desc: "ayrancı kredi kartı", amount: 10000.00 },
+        { date: "30.06.2026 13:15", desc: "kolacı eft kredi kartı", amount: 4000.00 }
+    ];
+    
+    const haziranTotalNakit = haziranNakitData.reduce((s, t) => s + t.amount, 0);
+    const haziranTotalKredi = haziranKrediData.reduce((s, t) => s + t.amount, 0);
+    
+    // Haziran Gelirler
+    const haziranNakitGelir = 703635.23;
+    const haziranKrediGelir = 97160.00;
+    const haziranGetirBrut = 38855.49;
+    const haziranTrendyolBrut = 220342.94;
+    const haziranGetirNet = haziranGetirBrut * 0.5;
+    const haziranTrendyolNet = haziranTrendyolBrut * 0.5;
+    const haziranBrutCiro = haziranNakitGelir + haziranKrediGelir + haziranGetirBrut + haziranTrendyolBrut;
+    const haziranNetCiro = haziranNakitGelir + haziranKrediGelir + haziranGetirNet + haziranTrendyolNet;
+    
+    // Haziran Personel (25 gün)
+    const haziranPersonnel = [
+        { name: "Yılmaz Usta", daily: 2200, days: haziranCalismaGunu, total: 2200 * haziranCalismaGunu },
+        { name: "Ahmet Usta", daily: 2500, days: haziranCalismaGunu, total: 2500 * haziranCalismaGunu },
+        { name: "Hasan Garson", daily: 1800, days: haziranCalismaGunu, total: 1800 * haziranCalismaGunu },
+        { name: "Bulaşıkçı Abla", daily: 1100, days: haziranCalismaGunu, total: 1100 * haziranCalismaGunu },
+        { name: "Yusuf Usta", daily: 2000, days: haziranCalismaGunu, total: 2000 * haziranCalismaGunu },
+        { name: "Kasım Usta", daily: 2000, days: haziranCalismaGunu, total: 2000 * haziranCalismaGunu }
+    ];
+    const haziranPersonelGider = haziranPersonnel.reduce((s, p) => s + p.total, 0);
+    
+    const haziran = {
+        brütCiro: haziranBrutCiro,
+        netCiro: haziranNetCiro,
+        nakitGider: haziranTotalNakit,
+        krediGider: haziranTotalKredi,
+        personelGider: haziranPersonelGider,
+        calismaGunu: haziranCalismaGunu,
+        gunlukCiro: haziranNetCiro / haziranCalismaGunu,
+        toplamGider: haziranTotalNakit + haziranTotalKredi + haziranPersonelGider,
+        netKar: haziranNetCiro - (haziranTotalNakit + haziranTotalKredi + haziranPersonelGider),
+        telefon: 0,
+        kiraOdenmedi: true,
+        yusufBorcu: 82850,
+        getirBrut: haziranGetirBrut,
+        trendyolBrut: haziranTrendyolBrut,
+        getirNet: haziranGetirNet,
+        trendyolNet: haziranTrendyolNet,
+        nakitGelir: haziranNakitGelir,
+        krediGelir: haziranKrediGelir
+    };
+    
+    // ============================================================
+    // RENDER FONKSİYONLARI
+    // ============================================================
+    
+    function renderDebtNotes(month) {
+        let notes = '';
+        if (month.kiraOdenmedi) {
+            notes += `<div class="warning-note">🏠 <strong>Kira 45.000 TL ödenmemiştir.</strong> (Bu ay ödenmedi)</div>`;
+        }
+        if (month.yusufBorcu > 0) {
+            notes += `<div class="warning-note">🧑‍🍳 <strong>Yusuf Usta'ya borç: ${month.yusufBorcu.toLocaleString('tr-TR')} TL</strong></div>`;
+        }
+        return notes;
+    }
+    
+    function renderOverview(month, monthName, personnelData, nakitData, krediData, isHaziran) {
+        const onlineSection = isHaziran ? `
+            <div class="summary-stats">
+                <div class="stat-card"><h4>📦 Getir (Brüt)</h4><div class="stat-number">${month.getirBrut.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+                <div class="stat-card"><h4>📦 Getir (Net %50)</h4><div class="stat-number">${month.getirNet.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+                <div class="stat-card"><h4>📦 Trendyol (Brüt)</h4><div class="stat-number">${month.trendyolBrut.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+                <div class="stat-card"><h4>📦 Trendyol (Net %50)</h4><div class="stat-number">${month.trendyolNet.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+            </div>
+        ` : '';
+        
+        const debtNotes = renderDebtNotes(month);
+        
         return `
             <div class="content-card">
-                <div class="card-header">📈 Nisan Ayı Performans Özeti (30 Çalışma Günü)</div>
+                <div class="card-header">📈 ${monthName} Ayı Performans Özeti (${month.calismaGunu} Çalışma Günü)</div>
                 <div class="card-body">
                     <div class="summary-stats">
-                        <div class="stat-card"><h4>📀 Brüt Ciro</h4><div class="stat-number">${nisan.brütCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                        <div class="stat-card"><h4>🎯 Net Ciro</h4><div class="stat-number">${nisan.netCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                        <div class="stat-card profit-card"><h4>✨ Net Kâr</h4><div class="stat-number">${nisan.netKar.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+                        <div class="stat-card"><h4>📀 Brüt Ciro</h4><div class="stat-number">${month.brütCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+                        <div class="stat-card"><h4>🎯 Net Ciro</h4><div class="stat-number">${month.netCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+                        <div class="stat-card profit-card"><h4>✨ Net Kâr</h4><div class="stat-number">${month.netKar.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
                     </div>
+                    ${onlineSection}
                     <div class="summary-stats">
-                        <div class="stat-card"><h4>🧾 Nakit Gider</h4><div class="stat-number">${nisan.nakitGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                        <div class="stat-card"><h4>💳 Kredi Kartı Gider</h4><div class="stat-number">${nisan.krediGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                        <div class="stat-card"><h4>👥 Personel Gideri</h4><div class="stat-number">${nisan.personelGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+                        <div class="stat-card"><h4>🧾 Nakit Gider</h4><div class="stat-number">${month.nakitGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+                        <div class="stat-card"><h4>💳 Kredi Kartı/EFT Gider</h4><div class="stat-number">${month.krediGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
+                        <div class="stat-card"><h4>👥 Personel Gideri</h4><div class="stat-number">${month.personelGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
                     </div>
                     <div class="stat-card profit-card" style="margin-top:8px;">
                         <h4 style="color:#ffecb3;">✨ NET KAR (Net Ciro - Tüm Giderler)</h4>
-                        <div class="stat-number" style="color:#facc15;">${nisan.netKar.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div>
-                        <div class="result-badge" style="color:#e2f0e6;">${nisan.netCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} - ${nisan.toplamGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</div>
+                        <div class="stat-number" style="color:#facc15;">${month.netKar.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div>
+                        <div class="result-badge" style="color:#e2f0e6;">${month.netCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} - ${month.toplamGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</div>
                     </div>
                     <div class="info-note">
-                        📅 <strong>Çalışma Günü:</strong> ${nisan.calismaGunu} gün<br>
-                        📊 <strong>Günlük Ortalama Ciro:</strong> ${nisan.gunlukCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺/gün
+                        📅 <strong>Çalışma Günü:</strong> ${month.calismaGunu} gün<br>
+                        📊 <strong>Günlük Ortalama Ciro:</strong> ${month.gunlukCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺/gün
                     </div>
-                    <div class="warning-note">
-                        🏠 Kira 45.000 TL ödenmemiştir.<br>
-                        📌 Geçen aydan Yusuf Usta'ya 110.820 TL borç bulunmaktadır.
-                    </div>
+                    ${debtNotes}
                 </div>
             </div>
             <div class="content-card">
-                <div class="card-header">📋 Nisan Ayı Kesin Kar/Zarar Tablosu</div>
+                <div class="card-header">📋 ${monthName} Ayı Kesin Kar/Zarar Tablosu</div>
                 <div class="card-body">
                     <table style="width:100%">
                         <thead><tr><th>Kalem</th><th>Tutar (₺)</th></tr></thead>
                         <tbody>
-                            <tr><td>Brüt Ciro</td><td class="amount-right">${nisan.brütCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr><td>Nakit Gider</td><td class="amount-right">${nisan.nakitGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr><td>Kredi Kartı Gider</td><td class="amount-right">${nisan.krediGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr><td>Personel Gideri</td><td class="amount-right">${nisan.personelGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr class="total-row"><td><strong>Toplam Gider</strong></td><td class="amount-right"><strong>${nisan.toplamGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</strong></td></tr>
-                            <tr style="background:#e6f7ec;"><td><strong>NET KÂR</strong></td><td class="amount-right positive"><strong>${nisan.netKar.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</strong></td></tr>
+                            <tr><td>Brüt Ciro</td><td class="amount-right">${month.brütCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
+                            ${isHaziran ? `
+                            <tr><td>Getir Net (%50)</td><td class="amount-right">${month.getirNet.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
+                            <tr><td>Trendyol Net (%50)</td><td class="amount-right">${month.trendyolNet.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
+                            ` : ''}
+                            <tr><td>Net Ciro</td><td class="amount-right">${month.netCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
+                            <tr><td>Nakit Gider</td><td class="amount-right">${month.nakitGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
+                            <tr><td>Kredi Kartı/EFT Gider</td><td class="amount-right">${month.krediGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
+                            <tr><td>Personel Giderleri (${month.calismaGunu} gün)</td><td class="amount-right">${month.personelGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
+                            <tr class="total-row"><td><strong>Toplam Gider</strong></td><td class="amount-right"><strong>${month.toplamGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</strong></td></tr>
+                            <tr style="background:#e6f7ec;"><td><strong>NET KÂR</strong></td><td class="amount-right positive"><strong>${month.netKar.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</strong></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -385,105 +580,30 @@
         `;
     }
     
-    function renderNisanPersonel() {
-        let rows = nisanPersonnel.map(p => `<tr><td>${p.name}</td><td class="amount-right">${p.daily.toLocaleString('tr-TR')} ₺</td><td class="amount-right">${p.days}</td><td class="amount-right">${p.total.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
-        return `<div class="content-card"><div class="card-header">👥 Nisan Ayı Personel Giderleri (30 Gün)</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Personel</th><th>Günlük Ücret</th><th>Gün</th><th>Toplam (₺)</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Personel</strong></td><td class="amount-right"><strong>${nisan.personelGider.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div><div class="info-note">💡 Nisan 2026: 30 gün tam çalışma (Gamze 10 gün)</div></div></div>`;
+    function renderPersonel(month, personnelData, monthName) {
+        let rows = personnelData.map(p => `<tr><td>${p.name}</td><td class="amount-right">${p.daily.toLocaleString('tr-TR')} ₺</td><td class="amount-right">${p.days}</td><td class="amount-right">${p.total.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
+        const total = personnelData.reduce((s, p) => s + p.total, 0);
+        return `<div class="content-card"><div class="card-header">👥 ${monthName} Ayı Personel Giderleri (${personnelData[0].days} Gün)</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Personel</th><th>Günlük Ücret</th><th>Gün</th><th>Toplam (₺)</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Personel</strong></td><td class="amount-right"><strong>${total.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div>${renderDebtNotes(month)}</div></div>`;
     }
     
-    function renderNisanNakit() {
-        let rows = nisanNakit.map(t => `<tr><td style="white-space:nowrap;">${t.date}</td><td>${t.desc}</td><td><span class="method-nakit">Nakit</span></td><td class="amount-right">${t.amount.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
-        return `<div class="content-card"><div class="card-header">💰 Nisan Ayı Nakit Giderler (Kasadan)</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Tür</th><th>Tutar</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Nakit Gider</strong></td><td class="amount-right"><strong>${nisan.nakitGider.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div></div></div>`;
+    function renderNakit(month, nakitData, monthName) {
+        let rows = nakitData.map(t => `<tr><td style="white-space:nowrap;">${t.date}</td><td>${t.desc}</td><td><span class="method-nakit">Nakit</span></td><td class="amount-right">${t.amount.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
+        const total = nakitData.reduce((s, t) => s + t.amount, 0);
+        return `<div class="content-card"><div class="card-header">💰 ${monthName} Ayı Nakit Giderler</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Tür</th><th>Tutar</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Nakit Gider</strong></td><td class="amount-right"><strong>${total.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div>${renderDebtNotes(month)}</div></div>`;
     }
     
-    function renderNisanKredi() {
-        let rows = nisanKredi.map(t => `<tr><td style="white-space:nowrap;">${t.date}</td><td>${t.desc}</td><td><span class="method-kredi">Kredi Kartı/EFT</span></td><td class="amount-right">${t.amount.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
-        return `<div class="content-card"><div class="card-header">💳 Nisan Ayı Kredi Kartı & EFT Giderleri</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Tür</th><th>Tutar</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Kredi Kartı/EFT Gideri</strong></td><td class="amount-right"><strong>${nisan.krediGider.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div></div></div>`;
+    function renderKredi(month, krediData, monthName) {
+        let rows = krediData.map(t => `<tr><td style="white-space:nowrap;">${t.date}</td><td>${t.desc}</td><td><span class="method-kredi">Kredi Kartı/EFT</span></td><td class="amount-right">${t.amount.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
+        const total = krediData.reduce((s, t) => s + t.amount, 0);
+        return `<div class="content-card"><div class="card-header">💳 ${monthName} Ayı Kredi Kartı & EFT Giderleri</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Tür</th><th>Tutar</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Kredi Kartı/EFT Gideri</strong></td><td class="amount-right"><strong>${total.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div>${renderDebtNotes(month)}</div></div>`;
     }
     
-    function renderNisanAllGider() {
-        let all = [...nisanNakit.map(t => ({...t, type: 'Nakit'})), ...nisanKredi.map(t => ({...t, type: 'Kredi Kartı'}))];
+    function renderAllGider(month, nakitData, krediData, monthName) {
+        let all = [...nakitData.map(t => ({...t, type: 'Nakit'})), ...krediData.map(t => ({...t, type: 'Kredi Kartı'}))];
         all.sort((a,b)=>a.date.localeCompare(b.date));
         let rows = all.map(t => `<tr><td style="white-space:nowrap;">${t.date}</td><td>${t.desc}</td><td><span class="${t.type === 'Nakit' ? 'method-nakit' : 'method-kredi'}">${t.type}</span></td><td class="amount-right">${t.amount.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
-        return `<div class="content-card"><div class="card-header">📋 Nisan Ayı Tüm Giderler (Nakit + Kredi Kartı/EFT)</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Ödeme Türü</th><th>Tutar</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Gider (Nakit+Kredi)</strong></td><td class="amount-right"><strong>${(nisan.nakitGider + nisan.krediGider).toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div><div class="info-note" style="margin-top:18px;">📌 Personel giderleri (${nisan.personelGider.toLocaleString('tr-TR')} TL) bu tabloya dahil değildir.<br>📌 Toplam tüm gider (Personel dahil) = ${nisan.toplamGider.toLocaleString('tr-TR')} TL</div></div></div>`;
-    }
-    
-    // ============================================================
-    // RENDER FONKSİYONLARI (Mayıs)
-    // ============================================================
-    function renderMayisOverview() {
-        return `
-            <div class="content-card">
-                <div class="card-header">📈 Mayıs Ayı Performans Özeti (${mayisCalismaGunu} Çalışma Günü)</div>
-                <div class="card-body">
-                    <div class="summary-stats">
-                        <div class="stat-card"><h4>📀 Brüt Ciro</h4><div class="stat-number">${mayis.brütCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                        <div class="stat-card"><h4>📦 Trendyol Net </h4><div class="stat-number">${mayis.trendyolNet.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                        <div class="stat-card"><h4>🎯 Net Ciro</h4><div class="stat-number">${mayis.netCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                    </div>
-                    <div class="summary-stats">
-                        <div class="stat-card"><h4>🧾 Nakit Gider (PDF)</h4><div class="stat-number">${mayisTotalNakit.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                        <div class="stat-card"><h4>💳 Kart/EFT Gider (PDF)</h4><div class="stat-number">${mayisTotalKredi.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                        <div class="stat-card"><h4>📞 Telefon Faturası</h4><div class="stat-number">${mayis.telefon.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                        <div class="stat-card"><h4>👥 Personel (${mayisCalismaGunu} gün)</h4><div class="stat-number">${mayis.personelGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div></div>
-                    </div>
-                    <div class="stat-card profit-card" style="margin-top:8px;">
-                        <h4 style="color:#ffecb3;">✨ NET KAR (Net Ciro - Tüm Giderler)</h4>
-                        <div class="stat-number" style="color:#facc15;">${mayis.netKar.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</div>
-                        <div class="result-badge" style="color:#e2f0e6;">${mayis.netCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} - ${mayis.toplamGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</div>
-                    </div>
-                    <div class="info-note">
-                        📅 <strong>Çalışma Günü:</strong> ${mayisCalismaGunu} gün (31 gün - 3 Pazartesi kapalı - 4 gün bayram kapalı)<br>
-                        📊 <strong>Günlük Ortalama Ciro:</strong> ${mayis.gunlukCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺/gün
-                    </div>
-                    <div class="warning-note">
-                        🏠 Kira 45.000 TL ödenmemiştir.<br>
-                        📞 Telefon faturası 1.100 TL ek giderdir.<br>
-                      
-                    </div>
-                </div>
-            </div>
-            <div class="content-card">
-                <div class="card-header">📋 Mayıs Ayı Kesin Kar/Zarar Tablosu</div>
-                <div class="card-body">
-                    <table style="width:100%">
-                        <thead><tr><th>Kalem</th><th>Tutar (₺)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Brüt Ciro</td><td class="amount-right">${mayis.brütCiro.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr><td>Trendyol Net (%40 komisyon)</td><td class="amount-right">${mayis.trendyolNet.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr><td>Nakit Gider (PDF)</td><td class="amount-right">${mayisTotalNakit.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr><td>Kredi Kartı Gider (PDF)</td><td class="amount-right">${mayisTotalKredi.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr><td>Telefon Faturası</td><td class="amount-right">${mayis.telefon.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr><td>Personel Giderleri (${mayisCalismaGunu} gün)</td><td class="amount-right">${mayis.personelGider.toLocaleString('tr-TR', {minimumFractionDigits:2})}</td></tr>
-                            <tr class="total-row"><td><strong>Toplam Gider</strong></td><td class="amount-right"><strong>${mayis.toplamGider.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</strong></td></tr>
-                            <tr style="background:#e6f7ec;"><td><strong>NET KÂR</strong></td><td class="amount-right positive"><strong>${mayis.netKar.toLocaleString('tr-TR', {minimumFractionDigits:2})} ₺</strong></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        `;
-    }
-    
-    function renderMayisPersonel() {
-        let rows = mayisPersonnel.map(p => `<tr><td>${p.name}</td><td class="amount-right">${p.daily.toLocaleString('tr-TR')} ₺</td><td class="amount-right">${p.days}</td><td class="amount-right">${p.total.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
-        return `<div class="content-card"><div class="card-header">👥 Mayıs Ayı Personel Giderleri (${mayisCalismaGunu} Gün)</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Personel</th><th>Günlük Ücret</th><th>Gün</th><th>Toplam (₺)</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Personel</strong></td><td class="amount-right"><strong>${mayis.personelGider.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div><div class="info-note">💡 Mayıs 2026: ${mayisCalismaGunu} gün çalışma (3 Pazartesi + 4 gün bayram kapalı)</div></div></div>`;
-    }
-    
-    function renderMayisNakit() {
-        let rows = mayisNakit.map(t => `<tr><td style="white-space:nowrap;">${t.date}</td><td>${t.desc}</td><td><span class="method-nakit">Nakit</span></td><td class="amount-right">${t.amount.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
-        return `<div class="content-card"><div class="card-header">💰 Mayıs Ayı Nakit Giderler (Kasadan)</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Tür</th><th>Tutar</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Nakit Gider</strong></td><td class="amount-right"><strong>${mayisTotalNakit.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div></div></div>`;
-    }
-    
-    function renderMayisKredi() {
-        let rows = mayisKredi.map(t => `<tr><td style="white-space:nowrap;">${t.date}</td><td>${t.desc}</td><td><span class="method-kredi">Kredi Kartı/EFT</span></td><td class="amount-right">${t.amount.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
-        return `<div class="content-card"><div class="card-header">💳 Mayıs Ayı Kredi Kartı & EFT Giderleri</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Tür</th><th>Tutar</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Kredi Kartı/EFT Gideri</strong></td><td class="amount-right"><strong>${mayisTotalKredi.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div><div class="warning-note" style="margin-top:16px;">➕ Ek olarak <strong>Telefon Faturası 1.100 TL</strong> kredi kartı gideri olarak eklenmiştir.</div></div></div>`;
-    }
-    
-    function renderMayisAllGider() {
-        let all = [...mayisNakit.map(t => ({...t, type: 'Nakit'})), ...mayisKredi.map(t => ({...t, type: 'Kredi Kartı'})), { date: "Mayıs 2026", desc: "📞 Telefon Faturası (ek)", amount: mayis.telefon, type: "Kredi Kartı" }];
-        all.sort((a,b)=>a.date.localeCompare(b.date));
-        let rows = all.map(t => `<tr><td style="white-space:nowrap;">${t.date}</td><td>${t.desc}</td><td><span class="${t.type === 'Nakit' ? 'method-nakit' : 'method-kredi'}">${t.type}</span></td><td class="amount-right">${t.amount.toLocaleString('tr-TR')} ₺</td></tr>`).join('');
-        const totalAll = mayisTotalNakit + mayisTotalKredi + mayis.telefon;
-        return `<div class="content-card"><div class="card-header">📋 Mayıs Ayı Tüm Giderler (Nakit + Kredi Kartı/EFT + Ek Giderler)</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Ödeme Türü</th><th>Tutar</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam (PDF + Telefon)</strong></td><td class="amount-right"><strong>${totalAll.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div><div class="info-note" style="margin-top:18px;">📌 Personel giderleri (${mayis.personelGider.toLocaleString('tr-TR')} TL) bu tabloya dahil değildir.<br>📌 Toplam tüm gider (Personel dahil) = ${mayis.toplamGider.toLocaleString('tr-TR')} TL</div></div></div>`;
+        const total = nakitData.reduce((s, t) => s + t.amount, 0) + krediData.reduce((s, t) => s + t.amount, 0);
+        return `<div class="content-card"><div class="card-header">📋 ${monthName} Ayı Tüm Giderler (Nakit + Kredi Kartı/EFT)</div><div class="card-body"><div class="table-wrapper"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Ödeme Türü</th><th>Tutar</th></tr></thead><tbody>${rows}<tr class="total-row"><td colspan="3"><strong>Toplam Gider (Nakit+Kredi)</strong></td><td class="amount-right"><strong>${total.toLocaleString('tr-TR')} ₺</strong></td></tr></tbody></table></div><div class="info-note" style="margin-top:18px;">📌 Personel giderleri (${month.personelGider.toLocaleString('tr-TR')} TL) bu tabloya dahil değildir.<br>📌 Toplam tüm gider (Personel dahil) = ${month.toplamGider.toLocaleString('tr-TR')} TL</div>${renderDebtNotes(month)}</div></div>`;
     }
     
     // ============================================================
@@ -495,17 +615,23 @@
     
     function renderCurrent() {
         if (currentMonth === 'nisan') {
-            if (currentSubTab === 'overview') container.innerHTML = renderNisanOverview();
-            else if (currentSubTab === 'personel') container.innerHTML = renderNisanPersonel();
-            else if (currentSubTab === 'nakit') container.innerHTML = renderNisanNakit();
-            else if (currentSubTab === 'kredi') container.innerHTML = renderNisanKredi();
-            else if (currentSubTab === 'allgider') container.innerHTML = renderNisanAllGider();
-        } else {
-            if (currentSubTab === 'overview') container.innerHTML = renderMayisOverview();
-            else if (currentSubTab === 'personel') container.innerHTML = renderMayisPersonel();
-            else if (currentSubTab === 'nakit') container.innerHTML = renderMayisNakit();
-            else if (currentSubTab === 'kredi') container.innerHTML = renderMayisKredi();
-            else if (currentSubTab === 'allgider') container.innerHTML = renderMayisAllGider();
+            if (currentSubTab === 'overview') container.innerHTML = renderOverview(nisan, 'Nisan', nisanPersonnel, nisanNakit, nisanKredi, false);
+            else if (currentSubTab === 'personel') container.innerHTML = renderPersonel(nisan, nisanPersonnel, 'Nisan');
+            else if (currentSubTab === 'nakit') container.innerHTML = renderNakit(nisan, nisanNakit, 'Nisan');
+            else if (currentSubTab === 'kredi') container.innerHTML = renderKredi(nisan, nisanKredi, 'Nisan');
+            else if (currentSubTab === 'allgider') container.innerHTML = renderAllGider(nisan, nisanNakit, nisanKredi, 'Nisan');
+        } else if (currentMonth === 'mayis') {
+            if (currentSubTab === 'overview') container.innerHTML = renderOverview(mayis, 'Mayıs', mayisPersonnel, mayisNakit, mayisKredi, false);
+            else if (currentSubTab === 'personel') container.innerHTML = renderPersonel(mayis, mayisPersonnel, 'Mayıs');
+            else if (currentSubTab === 'nakit') container.innerHTML = renderNakit(mayis, mayisNakit, 'Mayıs');
+            else if (currentSubTab === 'kredi') container.innerHTML = renderKredi(mayis, mayisKredi, 'Mayıs');
+            else if (currentSubTab === 'allgider') container.innerHTML = renderAllGider(mayis, mayisNakit, mayisKredi, 'Mayıs');
+        } else if (currentMonth === 'haziran') {
+            if (currentSubTab === 'overview') container.innerHTML = renderOverview(haziran, 'Haziran', haziranPersonnel, haziranNakitData, haziranKrediData, true);
+            else if (currentSubTab === 'personel') container.innerHTML = renderPersonel(haziran, haziranPersonnel, 'Haziran');
+            else if (currentSubTab === 'nakit') container.innerHTML = renderNakit(haziran, haziranNakitData, 'Haziran');
+            else if (currentSubTab === 'kredi') container.innerHTML = renderKredi(haziran, haziranKrediData, 'Haziran');
+            else if (currentSubTab === 'allgider') container.innerHTML = renderAllGider(haziran, haziranNakitData, haziranKrediData, 'Haziran');
         }
     }
     
